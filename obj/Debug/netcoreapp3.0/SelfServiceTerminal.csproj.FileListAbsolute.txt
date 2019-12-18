@@ -1,0 +1,11 @@
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\bin\Debug\netcoreapp3.0\SelfServiceTerminal.exe
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\bin\Debug\netcoreapp3.0\SelfServiceTerminal.deps.json
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\bin\Debug\netcoreapp3.0\SelfServiceTerminal.runtimeconfig.json
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\bin\Debug\netcoreapp3.0\SelfServiceTerminal.runtimeconfig.dev.json
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\bin\Debug\netcoreapp3.0\SelfServiceTerminal.dll
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\bin\Debug\netcoreapp3.0\SelfServiceTerminal.pdb
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\obj\Debug\netcoreapp3.0\SelfServiceTerminal.AssemblyInfoInputs.cache
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\obj\Debug\netcoreapp3.0\SelfServiceTerminal.AssemblyInfo.cs
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\obj\Debug\netcoreapp3.0\SelfServiceTerminal.dll
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\obj\Debug\netcoreapp3.0\SelfServiceTerminal.pdb
+C:\Users\pawra\Desktop\Новая папка\lr4\SelfServiceTerminal\obj\Debug\netcoreapp3.0\SelfServiceTerminal.csprojAssemblyReference.cache
