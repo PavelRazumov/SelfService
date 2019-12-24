@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pawra\\Desktop\\Новая папка\\lr4\\SelfServiceTerminal\\SelfServiceTerminal.csproj",
+      "projectUniqueName": "C:\\Users\\pawra\\Desktop\\Новая папка\\lr4\\SelfService\\SelfServiceTerminal.csproj",
       "projectName": "SelfServiceTerminal",
-      "projectPath": "C:\\Users\\pawra\\Desktop\\Новая папка\\lr4\\SelfServiceTerminal\\SelfServiceTerminal.csproj",
+      "projectPath": "C:\\Users\\pawra\\Desktop\\Новая папка\\lr4\\SelfService\\SelfServiceTerminal.csproj",
       "packagesPath": "C:\\Users\\pawra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pawra\\Desktop\\Новая папка\\lr4\\SelfServiceTerminal\\obj\\",
+      "outputPath": "C:\\Users\\pawra\\Desktop\\Новая папка\\lr4\\SelfService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

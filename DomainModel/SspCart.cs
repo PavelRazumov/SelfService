@@ -6,44 +6,44 @@ namespace SelfServiceTerminal.DomainModel
 {
     public class SspCart : SspEntityBase
     {
-        private Dictionary<Guid, int> _cart;
+        private Dictionary<Guid, SspCartItem> cart;
  
         public SspCart()
         {
-            _cart = new Dictionary<Guid, int>();
+            cart = new Dictionary<Guid, SspCartItem>();
         }
 
-
-        public Dictionary<Guid, int> Cart
+        public Dictionary<Guid, SspCartItem> Cart
         {
             get
             {
-                return _cart;
+                return cart;
             }
 
             set
             {
-                _cart = value;
+                cart = value;
             }
         }
 
-        public void AddToCart(Guid itemId, int quantity)
+        public void AddToCart(SspMenuItem menuItem)
         {
-            _cart.Add(itemId, quantity);
+            var newCartItem = new SspCartItem(menuItem);
+            cart.Add(menuItem.Id, newCartItem);
         }
 
-        public void ChangeQuantity(Guid itemId, int newQuantity)
+        public void ChangeQuantity(SspMenuItem menuItem, int newQuantity)
         {
-            var curQuantity = _cart[itemId];
+            var curQuantity = cart[menuItem.Id].Quantity;
             if (curQuantity != newQuantity && newQuantity > 0)
             {
-                _cart[itemId] = newQuantity;
+                cart[menuItem.Id].Quantity = newQuantity;
             }
         }
 
         public bool RemoveFromCart(Guid itemId)
         {
-            return _cart.Remove(itemId);
+            return cart.Remove(itemId);
         }
     }
 }

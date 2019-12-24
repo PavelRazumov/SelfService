@@ -6,9 +6,9 @@ namespace SelfServiceTerminal.DomainModel
 {
     public class SspOrder : SspEntityBase
     {
-        private SspOrderStage _orderStage;
+        public SspOrderStage orderStage;
         private decimal _totalPrice;
-        private SspPaymentStage _paymentStage;
+        private SspPaymentStage paymentStage;
         public decimal TotalPrice
         {
             get
@@ -25,52 +25,43 @@ namespace SelfServiceTerminal.DomainModel
         public SspCart cart;
 
 
-        public SspOrder(ref SspCart _cart)
+        public SspOrder(SspCart _cart)
         {
             cart = _cart;
-            _orderStage = SspOrderStage.InProgress;
-            _paymentStage = SspPaymentStage.undefined;
+            orderStage = SspOrderStage.InProgress;
+            paymentStage = SspPaymentStage.undefined;
+            CalculateTotalPrice();
         }
- 
-        public SspOrderStage getCurrentOrderStage()
+        
+        public void CalculateTotalPrice()
         {
-            return _orderStage;
-        }
-        public void ChangeStatusOrder(string newStatus)
-        {
-            switch(newStatus)
+            TotalPrice = 0;
+            foreach(SspCartItem cartItem in cart.Cart.Values)
             {
-                case "wait":
-                    _orderStage = SspOrderStage.WaitForPayment;
-                    break;
-                case "ready":
-                    _orderStage = SspOrderStage.Ready;
-                    break;
-                case "received":
-                    _orderStage = SspOrderStage.Received;
-                    break;
-                case "cancelled":
-                    _orderStage = SspOrderStage.Cancell;
-                    break;
-
+                TotalPrice += cartItem.MenuItem.Price * cartItem.Quantity;
             }
         }
-
+        public SspOrderStage getCurrentOrderStage()
+        {
+            return orderStage;
+        }
+       
         public void setPaymentMethod(string paymentMethod)
         {
+            orderStage = SspOrderStage.WaitForPayment;
             switch (paymentMethod)
             {
                 case "cash":
-                    _paymentStage = SspPaymentStage.byCash;
-                    _orderStage = SspOrderStage.WaitForPayment;
+                    paymentStage = SspPaymentStage.byCash;
+                    orderStage = SspOrderStage.WaitForPayment;
                     break;
 
                 case "card":
-                    _paymentStage = SspPaymentStage.byCard;
-                    _orderStage = SspOrderStage.WaitForPayment;
+                    paymentStage = SspPaymentStage.byCard;
+                    orderStage = SspOrderStage.WaitForPayment;
                     break;
                 default:
-                    _paymentStage = SspPaymentStage.undefined;
+                    paymentStage = SspPaymentStage.undefined;
                     break;
                     
             }

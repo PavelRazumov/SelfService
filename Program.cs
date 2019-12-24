@@ -32,39 +32,45 @@ namespace SelfServiceTerminal
             
             // 3.1 init cart
             SspCart cart = new SspCart();
-            // 3.2 init cartService
-            SspCartService serviceCart = new SspCartService(ref cart, Menu);
-
+            // 3.2 
             // add MenuItem in Cart
-            serviceCart.AddMenuItem(Juice);
-            serviceCart.AddMenuItem(Salat);
+            // cart.(Juice);
+            cart.AddToCart(Juice);
+            cart.AddToCart(Burger);
+            cart.AddToCart(Salat);
+            cart.AddToCart(Water);
+
+            SspOrder order = new SspOrder(cart);
 
             // change quantity
-            serviceCart.ChangeQuantity(Salat, 4);
-            serviceCart.ChangeQuantity(Juice, 2);
+            cart.ChangeQuantity(Salat, 4);
+            cart.ChangeQuantity(Juice, 2);
+            cart.ChangeQuantity(Burger, 2);
+            cart.ChangeQuantity(Water, 1);
+
+            // recalculate price
+            order.CalculateTotalPrice();
             
             // check our cart
-            foreach (Guid id in cart.Cart.Keys)
+            foreach (SspCartItem cartItem in cart.Cart.Values)
             {
-                SspMenuItem menuItemInCart = serviceCart.GetMenuItemById(id);
-                Console.WriteLine(menuItemInCart.Name, " - ", menuItemInCart.Price);
+                Console.WriteLine(cartItem.MenuItem.Name);
+                Console.WriteLine(cartItem.Quantity);
             }
-            
+
             // 4 Confirm with selected item
-
-            // 4.1 init order
-            SspOrder order = new SspOrder(ref cart);
-
+           
             // 4.2 init order service
-            SspOrderService orderService = new SspOrderService(ref order, ref serviceCart);
             // check price
-            Console.WriteLine(orderService.GetTotalPriceOrder());
+            Console.WriteLine(order.TotalPrice);
 
             // 4.3 select payment method card
             order.setPaymentMethod("card");
 
             // 4.4 wait a payment
-            orderService.SendOnPayment();
+            SspPaymentService paymentService = new SspPaymentService();
+
+            paymentService.SendOnPayment(order);
         }
     }
 }
